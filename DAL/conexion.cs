@@ -464,5 +464,36 @@ namespace CONCESIONARIO.DAL
 
             return eliminado;
         }
+
+        public DataTable CargarVentas(string IDVENTA)
+        {
+            DataTable dataTable = new DataTable();
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string query = "SELECT V.IDVENTA, V.FECHA, V.METODOPAGO, V.STOCK, " +
+                        "(SELECT NOMBRE FROM VENDEDOR WHERE INE = V.VENDEDORINE) AS NOMBRE_VENDEDOR,V.BASTIDOR," +
+                        "(SELECT MODELO FROM AUTOMOVIL WHERE BASTIDOR = V.BASTIDOR) AS MODELO," +
+                        "(SELECT PRECIO FROM AUTOMOVIL WHERE BASTIDOR = V.BASTIDOR) AS PRECIO_MODELO," +
+                        "V.IDEXTRA," +
+                        "(SELECT PRECIOEXTRA FROM EXTRA WHERE IDEXTRA = V.IDEXTRA) AS PRECIO_EXTRA FROM VENTA V WHERE V.IDVENTA = @IDVENTA;";
+                    SqlCommand command = new SqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@IDVENTA", IDVENTA);
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    adapter.Fill(dataTable);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejar la excepción adecuadamente según tu lógica
+                Console.WriteLine("Error al buscar al vendedor por su INE: " + ex.Message);
+            }
+
+            return dataTable;
+        }
     }
 }

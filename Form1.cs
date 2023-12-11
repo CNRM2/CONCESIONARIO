@@ -99,5 +99,14 @@ namespace CONCESIONARIO
 
             this.Hide(); // Ocultar el formulario actual (Form1)
         }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            VentaInfo VentaForm = new VentaInfo(); // Crear una instancia del formulario ABMVendedor
+            VentaForm.FormClosed += MostrarFormPrincipal; // Suscribir al evento FormClosed
+            VentaForm.Show(); // Mostrar el formulario ABMVendedor
+
+            this.Hide(); // Ocultar el formulario actual (Form1)
+        }
     }
 }

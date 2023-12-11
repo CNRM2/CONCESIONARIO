@@ -44,6 +44,7 @@
             pictureBox2 = new PictureBox();
             tabPage3 = new TabPage();
             pictureBox1 = new PictureBox();
+            button10 = new Button();
             ABM.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -152,7 +153,7 @@
             ABM.Location = new Point(1, -1);
             ABM.Name = "ABM";
             ABM.SelectedIndex = 0;
-            ABM.Size = new Size(799, 453);
+            ABM.Size = new Size(817, 492);
             ABM.TabIndex = 9;
             // 
             // tabPage1
@@ -208,6 +209,7 @@
             // tabPage3
             // 
             tabPage3.BackgroundImage = Properties.Resources.bg_bggenerator_com;
+            tabPage3.Controls.Add(button10);
             tabPage3.Controls.Add(pictureBox1);
             tabPage3.Controls.Add(button6);
             tabPage3.Controls.Add(button2);
@@ -215,7 +217,7 @@
             tabPage3.Location = new Point(4, 29);
             tabPage3.Name = "tabPage3";
             tabPage3.Padding = new Padding(3);
-            tabPage3.Size = new Size(791, 420);
+            tabPage3.Size = new Size(809, 459);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Buscador";
             tabPage3.UseVisualStyleBackColor = true;
@@ -230,13 +232,23 @@
             pictureBox1.TabIndex = 6;
             pictureBox1.TabStop = false;
             // 
+            // button10
+            // 
+            button10.Location = new Point(48, 324);
+            button10.Name = "button10";
+            button10.Size = new Size(167, 47);
+            button10.TabIndex = 7;
+            button10.Text = "Consultar Venta";
+            button10.UseVisualStyleBackColor = true;
+            button10.Click += button10_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.GAS_RT_PROTECT__1__2;
             BackgroundImageLayout = ImageLayout.Center;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 482);
             Controls.Add(ABM);
             DoubleBuffered = true;
             Name = "Form1";
@@ -270,5 +282,6 @@
         private PictureBox pictureBox1;
         private PictureBox pictureBox3;
         private PictureBox pictureBox2;
+        private Button button10;
     }
 }
